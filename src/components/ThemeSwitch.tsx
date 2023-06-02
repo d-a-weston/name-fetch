@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const lightTheme = "winter";
+const lightTheme = "light";
 const darkTheme = "dark";
 
 export const ThemeSwitch: React.FC = () => {
