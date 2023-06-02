@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { debounce } from "ts-debounce";
+import { debounce } from "lodash";
 
 import { LoadingSpinner } from "./LoadingSpinner";
 import { Cross } from "~/assets/Cross";
