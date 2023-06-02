@@ -5,15 +5,12 @@ import { LoadingSpinner } from "./LoadingSpinner";
 import { Cross } from "~/assets/Cross";
 import { Checkmark } from "~/assets/Checkmark";
 
-const INSTANTUSERNAME_API_URL =
-  process.env.NEXT_PUBLIC_INSTANTUSERNAME_API_URL || "http://localhost:3001";
-
 export const NameFetchWizard = () => {
   const [services, setServices] = useState([]);
   const [username, setUsername] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${INSTANTUSERNAME_API_URL}/services.json`)
+    fetch(`/api/services`)
       .then((res) => res.json())
       .then(setServices)
       .catch((err) => console.error(err));
@@ -124,12 +121,9 @@ const NameFetchTile = ({
 
     const controller = new AbortController();
 
-    fetch(
-      `${INSTANTUSERNAME_API_URL}/check/${service.toLowerCase()}/${username}`,
-      {
-        signal: controller.signal,
-      }
-    )
+    fetch(`/api/check/${service.toLowerCase()}/${username}`, {
+      signal: controller.signal,
+    })
       .then((res) => res.json())
       .then(({ available }) => {
         setIsAvailable(available ? successStatus : failureStatus);
