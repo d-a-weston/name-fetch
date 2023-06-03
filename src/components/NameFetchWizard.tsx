@@ -53,7 +53,7 @@ export const NameFetchWizard = () => {
         </div>
       </div>
       {username && (
-        <div className="grid grid-cols-3 gap-4 md:grid-cols-6">
+        <div className="grid grid-cols-1 gap-4 min-[510px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           {services.map(({ service }) => (
             <NameFetchTile
               key={service}
